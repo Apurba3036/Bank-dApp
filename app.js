@@ -1,14 +1,23 @@
 var web3;
 
-const address="0xD1c20A8CA57e88756Bd61d71e6659B7045b935Bb";
+const address="0x9C29f99BA9E48AF875Cc5c42F94dB3c9d47cE53a";
 
-async function connect() {
+async function Connect() {
     try {
-        await window.currentProvider.enable();
-        web3 = new Web3(window.web3.currentProvider);
+        await window.ethereum.enable();
+        web3 = new Web3(window.ethereum);
+
+        if (window.ethereum) {
+ 
+            await window.ethereum.request({ method: "eth_requestAccounts" });
+            // window.web3 = new Web3(window.ethereum);
+            
+           } else {
+            console.log("No wallet");
+           }
     } catch (error) {
         console.error(error);
-        document.getElementById("status").innerHTML = "Please connect MetaMask";
+       // document.getElementById("status").innerHTML = "Please connect MetaMask";
     }
 }
 
@@ -16,7 +25,8 @@ async function connect() {
 if (typeof web3 === "undefined") {
     document.getElementById("status").innerHTML = "Please connect MetaMask";
 } else {
-    web3 = new Web3(window.web3.currentProvider);
+    web3 = new Web3(window.ethereum);
+    
 }
 
 
@@ -67,9 +77,9 @@ const abi=[
 	}
 ];
 
-const contract=new web3.eth.Contract(abi,address);
+ var contract=new web3.eth.Contract(abi,address);
 
-function deposit(){
+function depositamount(){
 
     var input= document.getElementById("amount").value;
     web3.eth.getAccounts().then(function(account){
@@ -86,7 +96,7 @@ function deposit(){
 }
 
 
-function withdraw(){
+function withdrawamount(){
 
     var input= document.getElementById("amount").value;
     web3.eth.getAccounts().then(function(account){

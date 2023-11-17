@@ -1,0 +1,31 @@
+*{
+
+    align-items: center;
+    padding: 2%;
+    padding-top:1%;
+}
+
+.navbar{
+    
+    height: 70px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.{
+    padding: 10px;
+}
+
+
+.div{
+
+    align-items: center;
+    background-color: rgb(187, 203, 221);
+    border-radius: 5px;
+    border: 1px solid rgb(0, 204, 255);
+    padding: 2%;
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+}
